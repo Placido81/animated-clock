@@ -1,0 +1,189 @@
+:root {
+    --face-size: 15rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+  background: linear-gradient(to bottom, #2165ff, #31dc2d);
+}
+
+body > * {
+    margin: 1rem;
+    margin-top: 15rem;
+    padding: 5rem;
+}
+
+#analog-clock {
+    width: var(--face-size);
+    height: var(--face-size);
+    position: relative;
+    border: 3px solid #555;
+    border-radius: 50%;
+    font-weight: 400;
+    padding: 3rem;
+}
+
+.dot {
+    --size: 9px;
+    position: absolute;
+    left: calc(50% - calc(var(--size) / 2));
+    top: calc(50% - calc(var(--size) / 2));
+    width: var(--size);
+    height: var(--size);
+    background-color: #333;
+    border-radius: 50%;
+    filter: drop-shadow(1px 1px 1px #333);
+    
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: calc(50% - calc(var(--width) / 2));
+    width: var(--width);
+    transform-origin: center bottom;
+}
+
+.hand > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.hand .body {
+    background-color: #333;
+    
+}
+
+.hand .shadow {
+    background-color: rgb(244, 237, 237);
+    opacity: 0.2;
+    filter: drop-shadow(0 0 1px rgb(239, 232, 232));
+}
+
+.second {
+    --width: 1px;
+    height: 50%;
+    transform-origin: center 80%;
+    margin-bottom: calc(var(--face-size) * -0.1)
+}
+
+.second .body {
+    background-color: rgb(228, 216, 47);
+}
+
+.minute {
+    --width: 3px;
+    height: 35%;
+}
+
+.hour {
+    --width: 5px;
+    height: 25%;
+}
+
+.day {
+    --size: 2ch;
+    position: absolute;
+    left: calc(50% - calc(var(--size) / 2));
+    top: calc(50% - calc(var(--size) / 2));
+    width: var(--size);
+    height: var(--size);
+    transform: translate(calc(var(--face-size) * 0.2));
+    border: 1px solid rgb(232, 210, 11);
+    color: white !important;
+    font-size: 15px;
+    padding: 0.1rem;
+}
+
+.tick {
+    --width: 2px;
+    --height: 29px;
+    --shift: translateY(calc(var(--face-size) / -2));
+    position: absolute;
+    width: var(--width);
+    height: var(--height);
+    background-color: #666;
+    top: 50%;
+    left: calc(50% - calc(var(--width) / 2));
+    transform-origin: top center;
+}
+
+.tick > span {
+    --width: calc(calc(var(--face-size) * 3.141592653589793) / 24);
+    position: absolute;
+    width: var(--width);
+    top: 3px;
+    left: calc(var(--width) / -2);
+    text-align: center;
+}
+
+.hour-ticks .tick:nth-child(even) > span {
+    display: none;
+}
+
+.hour-ticks .tick:nth-child(odd) {
+    background: none;
+}
+
+.hour-ticks .tick {
+    transform: rotate(calc(var(--index) * 15deg)) var(--shift);
+}
+
+.minute-ticks .tick {
+    --width: 1px;
+    --height: 5px;
+    --shift: translateY(calc(var(--face-size) / -2.5));
+    background-color: black;
+    transform: rotate(calc(var(--index) * 6deg)) var(--shift);
+}
+
+.minute-ticks .tick:nth-child(5n+1) {
+    display: none;
+}
+
+#digital-clock {
+    font-size: 2.5rem;
+    line-height: 1;
+    border: 2px ridge white;
+    height: 0.3rem;
+    padding: 1.9rem;
+    margin: 0.4rem ;
+   
+}
+
+#digital-clock > span {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 3.5rem;
+   
+}
+
+.digit {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 1ch;
+}
+
+.digit.wide {
+    max-width: 2ch;
+}
+
+.digit > span {
+    display: inline-flex;
+    align-items: flex-start;
+}
+
+.digit.wide > span > span {
+    min-width: 2ch;
+    text-align: right;
+}
+
+.day .digit > span > span {
+    text-align: center;
+}

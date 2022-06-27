@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Clock</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <template id="tick">
+        <div class="tick"><span></span></div>        
+    </template>
+    
+    <template id="digit"><span class="digit" style="--len: 10;"><span></span></span></template>
+    
+    <div id="analog-clock">
+        <div class="hour-ticks"></div>
+        <div class="minute-ticks"></div>
+        
+        <div class="day"></div>
+        
+        <div class="hand second"><div class="shadow"></div><div class="body"></div></div>
+        <div class="hand minute"><div class="shadow"></div><div class="body"></div></div>
+        <div class="hand hour"><div class="shadow"></div><div class="body"></div></div>
+      
+        <div class="dot"></div>
+    </div>
+    
+    <div id="digital-clock">
+        <span class="hours"></span><span>:</span><span class="minutes"></span><span>:</span><span class="seconds"></span><span>.</span><span class="milliseconds"></span>
+    </div>
+    <script src="clock.js"></script>
+</body>
+</html>
